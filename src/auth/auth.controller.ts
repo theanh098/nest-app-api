@@ -1,8 +1,10 @@
-import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards } from '@nestjs/common';
 import { AuthGuardLocal } from 'common/guards/local-auth.guard';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
-import { Request as ReqExpress } from 'express';
+import { JwtRefreshAuthGuard } from 'common/guards/jwt-refresh.guard';
+import { User } from 'common/decorators/user.decorator';
+import { UserEntity } from 'users/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -20,12 +22,16 @@ export class AuthController {
    */
   @UseGuards(AuthGuardLocal)
   @Post('login')
-  async signIn(@Request() req: ReqExpress) {
-    return this.authService.login(req);
+  async signIn(@User() user: Partial<UserEntity>) {
+    return this.authService.login(user);
   }
 
+  @UseGuards(JwtRefreshAuthGuard)
   @Post('refresh-token')
-  async refreshToken(@Body('refreshToken') refreshToken: string) {
-    return this.authService.refreshToken(refreshToken);
+  async refreshToken(
+    @Body('refreshToken') refreshToken: string,
+    @User() { userId }: { userId: number },
+  ) {
+    return this.authService.refreshToken(refreshToken, userId);
   }
 }

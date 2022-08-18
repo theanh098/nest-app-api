@@ -1,5 +1,7 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { User } from 'common/decorators/user.decorator';
 import { JwtAuthGuard } from 'common/guards/jwt-auth.guard';
+import { UserEntity } from './entities/user.entity';
 
 @Controller('users')
 export class UsersController {
@@ -10,7 +12,7 @@ export class UsersController {
    */
   @UseGuards(JwtAuthGuard)
   @Get()
-  whoAmI(@Req() req: any) {
-    return 'I am Badao !';
+  whoAmI(@User() user: Partial<UserEntity>) {
+    return user;
   }
 }

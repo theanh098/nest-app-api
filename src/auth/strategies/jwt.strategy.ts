@@ -9,19 +9,16 @@ export type PayloadVerify = {
 };
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy,'jjj') {
+export class JwtStrategy extends PassportStrategy(Strategy, 'jjj') {
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: 'mysecret',
+      secretOrKey: process.env.ACCESS_TOKEN_SECRET,
     });
   }
 
   async validate(payload: PayloadVerify) {
-
-    console.log('payload in validate straregy: ', payload)
-
     return {
       userId: payload.sub,
       username: payload.username,

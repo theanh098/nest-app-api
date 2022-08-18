@@ -15,7 +15,7 @@ export class UserEntity {
   @Column({ nullable: true })
   refreshToken: string;
 
-  @Column({default: false})
+  @Column({ default: false })
   isAdmin: boolean;
 
   @Column({ default: null })

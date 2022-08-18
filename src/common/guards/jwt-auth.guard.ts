@@ -29,7 +29,7 @@ export class JwtAuthGuard extends AuthGuard('jjj') {
 
   handleRequest<TUser = any>(
     err: any,
-    user: any, // it is the returns of validate method in strategy
+    user: any, // it is the returns of validate method in strategy or undifined if token is not valid
     info: any,
     context: ExecutionContext,
     status?: any,
@@ -40,8 +40,11 @@ export class JwtAuthGuard extends AuthGuard('jjj') {
      * like conext.switchHttp().getRequest().user = user;
      */
 
-    if (info?.message === 'jwt expired')
-      throw new UnauthorizedException({ message: 'token expried', status: HttpStatus.UNAUTHORIZED });
+    if (info?.message)
+      throw new UnauthorizedException({
+        message: info.message,
+        status: HttpStatus.UNAUTHORIZED,
+      });
 
     return super.handleRequest(err, user, info, context, status);
   }
