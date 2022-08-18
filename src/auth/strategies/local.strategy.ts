@@ -14,6 +14,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     username: string,
     password: string,
   ): Promise<Partial<UserEntity>> {
+    console.log('username: ', username);
+    console.log('password: ', password);
     const user = await this.authService.validateUSer(username, password);
     if (!user) {
       console.log('cmmmmm');

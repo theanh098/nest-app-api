@@ -1,8 +1,13 @@
-### test api
+# HELLO WORLD
+GET http://localhost:8080/api/v1
 
-POST http://localhost:8080/auth/login
+###
+
+# LOGIN
+POST http://localhost:8080/api/v1/auth/login
 Content-Type: application/json
+
 {
-    "username": "thoxinh",
-    "password": "thoxinhxan"
+    "username":"thoanh<3",
+    "password":"thoxinh"
 }
