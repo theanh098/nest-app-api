@@ -6,10 +6,10 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: false, unique: true })
+  @Column({ unique: true })
   username: string;
 
-  @Column({ nullable: false })
+  @Column()
   password: string;
 
   @Column({ nullable: true })

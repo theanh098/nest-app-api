@@ -8,6 +8,12 @@ export type PayloadVerify = {
   isAdmin: boolean;
 };
 
+export type UserAfterVerify = {
+  userId: number;
+  username: string;
+  isAdmin: boolean;
+};
+
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jjj') {
   constructor() {
@@ -18,7 +24,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jjj') {
     });
   }
 
-  async validate(payload: PayloadVerify) {
+  async validate(payload: PayloadVerify): Promise<UserAfterVerify> {
     return {
       userId: payload.sub,
       username: payload.username,

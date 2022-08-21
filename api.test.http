@@ -1,5 +1,17 @@
+
 # HELLO WORLD
 GET http://localhost:8080/api/v1
+
+###
+
+# REGISTER
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "username":"thoanh<35",
+  "password":"thoxinh5"
+}
 
 ###
 
@@ -8,6 +20,28 @@ POST http://localhost:8080/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "username":"thoanh<3",
-    "password":"thoxinh"
+    "username":"thoanh<35",
+    "password":"thoxinh5"
 }
+
+### CREATE POST
+POST http://localhost:8080/api/v1/posts
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI3LCJ1c2VybmFtZSI6InRob2FuaDwzNSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjA5MDQyNzcsImV4cCI6MTY2MDkwNzg3N30.LuCCJSRnlYvRfzDLuFv24rYXjoy-i4rTT48wL_RQ2Jw
+Content-Type: application/json
+
+{
+  "title": "test-title 5.3",
+  "description": "test-description 5.3",
+  "imgURL": "imgUrl-test 5.3"
+}
+
+###
+GET http://localhost:8080/api/v1/posts?pageNumber=2&pageSize=3
+Content-Type: application/json
+
+###
+GET http://localhost:8080/api/v1/posts/25
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080/api/v1/posts/25

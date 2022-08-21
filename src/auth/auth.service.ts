@@ -1,4 +1,9 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserEntity } from 'users/entities/user.entity';
@@ -48,6 +53,12 @@ export class AuthService {
 
   async register(user: AuthDto) {
     const newUser = plainToClass(UserEntity, user);
+    const isExist = await this.userRepository
+      .createQueryBuilder('user')
+      .where('user.username = :username', { username: user.username })
+      .getOne();
+    if (isExist)
+      throw new HttpException('username is existed', HttpStatus.BAD_REQUEST);
     await this.userRepository.save(newUser);
   }
 
