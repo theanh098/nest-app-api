@@ -9,8 +9,8 @@ POST http://localhost:8080/api/v1/auth/register
 Content-Type: application/json
 
 {
-  "username":"thoanh<35",
-  "password":"thoxinh5"
+  "username":"thoanh<3",
+  "password":"thoxinh"
 }
 
 ###
@@ -20,8 +20,8 @@ POST http://localhost:8080/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "username":"thoanh<35",
-    "password":"thoxinh5"
+    "username":"thoanh<3",
+    "password":"thoxinh"
 }
 
 ### CREATE POST
@@ -40,8 +40,46 @@ GET http://localhost:8080/api/v1/posts?pageNumber=2&pageSize=3
 Content-Type: application/json
 
 ###
-GET http://localhost:8080/api/v1/posts/25
+GET http://localhost:8080/api/v1/posts/24
 Content-Type: application/json
 
 ###
-DELETE http://localhost:8080/api/v1/posts/25
+DELETE http://localhost:8080/api/v1/posts/11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIzLCJ1c2VybmFtZSI6InRob2FuaDwzMSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjExMzk0MTMsImV4cCI6MTY2MTE0MzAxM30.7ZvPBz0hc2VEJNHCXLtmuCU7su91C9plgzx41Bc4oJU
+
+###
+PATCH http://localhost:8080/api/v1/posts/25
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTE2MTM0NywiZXhwIjoxNjYxMTY0OTQ3fQ.PMA-YvqBJRuaf7BZ19zl7iHTGeJ6zMHxzXBCrxdrC40
+Content-Type: application/json
+
+{
+   "title": "test-title 5.3 24 update",
+  "imgURL": "24 24 24 24 242 424"
+}
+
+###
+Post http://localhost:8080/api/v1/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTE1MTQwNywiZXhwIjoxNjYxMTU1MDA3fQ.lvRzH5w10cLa8XvfMfwis3Y1bnKTvTRlxjYJjtYG5IY
+Content-Type: application/json
+
+{
+  "content" : "nice !!!",
+  "postId"  : 18
+}
+
+###
+GET http://localhost:8080/api/v1/comments?postId=18
+
+###
+PATCH http://localhost:8080/api/v1/comments/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTIzNzE1NSwiZXhwIjoxNjYxMjQwNzU1fQ.Qf2Ba9ife90zEfu6KqMsaMJ36WDExoP23-hZoSXZGnM
+Content-Type: application/json
+
+{
+  "content" : "tho anh xinh xan"
+}
+
+###
+
+DELETE  http://localhost:8080/api/v1/comments/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTIzNzE1NSwiZXhwIjoxNjYxMjQwNzU1fQ.Qf2Ba9ife90zEfu6KqMsaMJ36WDExoP23-hZoSXZGnM
