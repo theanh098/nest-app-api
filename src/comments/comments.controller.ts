@@ -8,11 +8,13 @@ import {
   Post,
   Query,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UserAfterVerify } from 'auth/strategies/jwt.strategy';
 import { User } from 'common/decorators/user.decorator';
 import { JwtAuthGuard } from 'common/guards/jwt-auth.guard';
+import { ValidatePipe } from 'common/pipes/validate.pipe';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
@@ -22,6 +24,7 @@ export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
   @ApiBearerAuth()
+  @UsePipes(ValidatePipe)
   @UseGuards(JwtAuthGuard)
   @Post()
   create(

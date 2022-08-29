@@ -43,7 +43,6 @@ export class CommentsService {
       user: author,
     });
 
-    console.log('newComment: ', newComment);
 
     await this.commentRespository.save(newComment);
   }

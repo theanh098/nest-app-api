@@ -8,12 +8,14 @@ import {
   Post,
   Query,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiBody, ApiTags, PartialType } from '@nestjs/swagger';
 import { UserAfterVerify } from 'auth/strategies/jwt.strategy';
 import { User } from 'common/decorators/user.decorator';
 import { JwtAuthGuard } from 'common/guards/jwt-auth.guard';
 import { PaginationQuery } from 'common/pagination/pagination.query';
+import { ValidatePipe } from 'common/pipes/validate.pipe';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PostsService } from './posts.service';
@@ -42,6 +44,7 @@ export class PostsController {
 
   @ApiBearerAuth()
   @ApiBody({ type: PartialType(CreatePostDto) })
+  @UsePipes(ValidatePipe)
   @UseGuards(JwtAuthGuard)
   @Patch(':id')
   update(

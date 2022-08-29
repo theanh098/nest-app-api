@@ -12,6 +12,7 @@ import { UsersModule } from 'users/users.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
+// import { QueryRunnerLogger } from 'common/logger/query-runner.logger';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
       entities: [UserEntity, PostEntity, CommentEntity, HeartEntity],
       synchronize: true,
+      logging: ["query", "error"]
     }),
     PostsModule,
     UsersModule,
