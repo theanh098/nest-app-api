@@ -40,7 +40,6 @@ export class PostsService {
       .select('user.id', 'author')
       .getRawOne();
 
-    console.log('postToUpdate: ', postToUpdate);
 
     if (postToUpdate.author !== useId) throw new UnauthorizedException();
     const post = await this.postRepository

@@ -40,7 +40,7 @@ GET http://localhost:8080/api/v1/posts?pageNumber=2&pageSize=3
 Content-Type: application/json
 
 ###
-GET http://localhost:8080/api/v1/posts/24
+GET http://localhost:8080/api/v1/posts/30
 Content-Type: application/json
 
 ###
@@ -59,11 +59,11 @@ Content-Type: application/json
 
 ###
 Post http://localhost:8080/api/v1/comments
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTE1MTQwNywiZXhwIjoxNjYxMTU1MDA3fQ.lvRzH5w10cLa8XvfMfwis3Y1bnKTvTRlxjYJjtYG5IY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTU3MTgzMywiZXhwIjoxNjYxNTc1NDMzfQ.migUTLL7dHXMTg300QY7ElgRNT8fdYPL5whDD39Qcmc
 Content-Type: application/json
 
 {
-  "content" : "nice !!!",
+  "content" : "tho <<<<<<<3>>>>>>> !!!",
   "postId"  : 18
 }
 

@@ -63,7 +63,6 @@ export class AuthService {
   }
 
   async refreshToken(refreshToken: string, userId: number) {
-    console.log('refresh token: ', refreshToken);
 
     const user = await this.userRepository
       .createQueryBuilder('user')

@@ -15,10 +15,10 @@ export class JwtAuthGuard extends AuthGuard('jjj') {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    console.log(
-      'user in req in canActive Guard: ',
-      context.switchToHttp().getRequest().user,
-    );
+    // console.log(
+    //   'user in req in canActive Guard: ',
+    //   context.switchToHttp().getRequest().user,
+    // );
     /**
      * return true that mean verify valid and validate method is called => next handle request is called
      * and return fasle handle request is still called
