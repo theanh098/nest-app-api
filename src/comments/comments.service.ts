@@ -43,7 +43,6 @@ export class CommentsService {
       user: author,
     });
 
-
     await this.commentRespository.save(newComment);
   }
   async findAll(postId: number) {

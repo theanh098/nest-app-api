@@ -25,6 +25,8 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jjj') {
   }
 
   async validate(payload: PayloadVerify): Promise<UserAfterVerify> {
+    console.log('validate in strategy');
+    console.log('payload: ', payload); // it is data after decode jwt token.
     return {
       userId: payload.sub,
       username: payload.username,

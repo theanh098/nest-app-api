@@ -40,7 +40,6 @@ export class PostsService {
       .select('user.id', 'author')
       .getRawOne();
 
-
     if (postToUpdate.author !== useId) throw new UnauthorizedException();
     const post = await this.postRepository
       .createQueryBuilder()
@@ -57,7 +56,10 @@ export class PostsService {
 
   async findAll(pagination?: PaginationQuery) {
     const { pageNumber, pageSize } = pagination;
-    const qb = this.postRepository.createQueryBuilder('post');
+    const qb = this.postRepository
+      .createQueryBuilder('post')
+      .leftJoinAndSelect('post.comments', 'cmts');
+
     if (pageNumber && pageSize)
       qb.limit(pageSize).offset((pageNumber - 1) * pageSize);
     const result = await qb.getMany();

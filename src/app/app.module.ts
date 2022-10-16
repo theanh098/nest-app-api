@@ -26,7 +26,7 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
       entities: [UserEntity, PostEntity, CommentEntity, HeartEntity],
       synchronize: true,
-      logging: ["query", "error"]
+      logging: ['query', 'error'],
     }),
     PostsModule,
     UsersModule,

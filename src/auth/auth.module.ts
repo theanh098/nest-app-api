@@ -14,10 +14,10 @@ import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
     TypeOrmModule.forFeature([UserEntity]),
     PassportModule,
     JwtModule,
-    // JwtModule.register({
-    //   secret: process.env.ACCESS_TOKEN_SECRET,
-    //   signOptions: { expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION_TIME },
-    // }),
+    JwtModule.register({
+      secret: process.env.ACCESS_TOKEN_SECRET,
+      signOptions: { expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION_TIME },
+    }),
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy, JwtRefreshStrategy],

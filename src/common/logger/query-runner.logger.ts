@@ -9,7 +9,7 @@ export class QueryRunnerLogger implements Logger {
       queryRunner && queryRunner.data['request']
         ? '(' + queryRunner.data['request'].url + ') '
         : '';
-    console.log('requestUrl: ', requestUrl)
+    console.log('requestUrl: ', requestUrl);
     console.log(requestUrl + 'executing query: ' + query);
   }
   /**

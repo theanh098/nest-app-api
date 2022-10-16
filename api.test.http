@@ -9,7 +9,7 @@ POST http://localhost:8080/api/v1/auth/register
 Content-Type: application/json
 
 {
-  "username":"thoanh<3",
+  "username":"maiyeutho",
   "password":"thoxinh"
 }
 
@@ -21,12 +21,13 @@ Content-Type: application/json
 
 {
     "username":"thoanh<3",
-    "password":"thoxinh"
+    "password":"thoxinh",
+    "address" : "0x375093275235325"
 }
 
 ### CREATE POST
 POST http://localhost:8080/api/v1/posts
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI3LCJ1c2VybmFtZSI6InRob2FuaDwzNSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjA5MDQyNzcsImV4cCI6MTY2MDkwNzg3N30.LuCCJSRnlYvRfzDLuFv24rYXjoy-i4rTT48wL_RQ2Jw
+Authorization:Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2NTgwMjYzNCwiZXhwIjoxNjY1ODA2MjM0fQ.x6nj3-CPwsIIPw-m8e8jBog5IInd3IYKcc_5OGL0I5w
 Content-Type: application/json
 
 {
@@ -36,7 +37,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/v1/posts?pageNumber=2&pageSize=3
+GET http://localhost:8080/api/v1/posts?pageNumber=1&pageSize=10
 Content-Type: application/json
 
 ###
@@ -59,12 +60,12 @@ Content-Type: application/json
 
 ###
 Post http://localhost:8080/api/v1/comments
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTU3MTgzMywiZXhwIjoxNjYxNTc1NDMzfQ.migUTLL7dHXMTg300QY7ElgRNT8fdYPL5whDD39Qcmc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJ1c2VybmFtZSI6InRob2FuaDwzIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2Mzk0MDgxMCwiZXhwIjoxNjYzOTQ0NDEwfQ.VxbN8T4gldDIf6YoAfPPG4h8W93dPCiInU55xCGxvDs
 Content-Type: application/json
 
 {
-  "content" : "tho <<<<<<<3>>>>>>> !!!",
-  "postId"  : 18
+  "content" : "fro !!!",
+  "postId"  : 20
 }
 
 ###

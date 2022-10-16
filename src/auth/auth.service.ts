@@ -59,11 +59,11 @@ export class AuthService {
       .getOne();
     if (isExist)
       throw new HttpException('username is existed', HttpStatus.BAD_REQUEST);
-    await this.userRepository.save(newUser);
+    const cmm = await this.userRepository.save(newUser);
+    console.log('cmm: ', cmm);
   }
 
   async refreshToken(refreshToken: string, userId: number) {
-
     const user = await this.userRepository
       .createQueryBuilder('user')
       .where('user.id = :id', { id: userId })
